@@ -1,0 +1,15 @@
+# Redirect rules for Netlify and Cloudflare Pages.
+#
+# Netlify applies the domain line below. Cloudflare Pages ignores domain-level rules:
+# there, add the non-www -> www redirect as a Redirect Rule in the Cloudflare dashboard
+# (Rules > Redirect Rules: hostname equals jumtueksperti.lv -> https://www.jumtueksperti.lv${path}, 301).
+# Both hosts force HTTPS themselves (Netlify automatically, Cloudflare via "Always Use HTTPS").
+
+https://jumtueksperti.lv/*  https://www.jumtueksperti.lv/:splat  301!
+http://jumtueksperti.lv/*   https://www.jumtueksperti.lv/:splat  301!
+
+# Old Astro 404 path
+/404/  /404.html  301
+
+# Russian visitors get the Russian 404 page (Netlify; Cloudflare serves /404.html for all).
+/ru/*  /ru/404/index.html  404
