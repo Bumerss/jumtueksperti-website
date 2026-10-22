@@ -2,6 +2,8 @@
 
 Static website for SIA "Jumtu ekspertīžu birojs" (www.jumtueksperti.lv), in Latvian (`/`) and Russian (`/ru/`).
 
+**Live preview:** https://bumerss.github.io/jumtueksperti-website/
+
 The site is plain pre-built HTML/CSS: no build step and no server code. Upload the whole folder as is.
 
 ## Deploy
