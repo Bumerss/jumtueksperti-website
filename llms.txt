@@ -1,6 +1,6 @@
 # Jumtu ekspertīžu birojs
 
-> SIA "Jumtu ekspertīžu birojs" is an independent roof and building technical expertise office in Rīga, Latvia. Services: roof expertise and inspection, construction supervision, waterproofing inspection, design/project analysis and technical consultations for building owners, property managers and construction parties. Site languages: Latvian (main) and Russian.
+> SIA "Jumtu ekspertīžu birojs" is a roof and building technical inspection office in Rīga, Latvia, led by Armands Liede (master roofer, engineer). Services: roof and whole-building technical inspection, pre-purchase inspection, leak and waterproofing investigation, construction / technical / author supervision, design review and detail development, roof safety systems, consultations and training. Site languages: Latvian (main) and Russian.
 
 - Address: Lizuma iela 5J, Rīga, LV-1006, Latvia
 - Email: info@jumtueksperti.lv
@@ -9,19 +9,22 @@
 
 ## Pages (Latvian)
 
-- [Jumtu ekspertīžu birojs](https://www.jumtueksperti.lv/): Jumtu, fasāžu un hidroizolācijas ekspertīze, būvuzraudzība visā Latvijā. Sertificēts eksperts, rakstisks atzinums. Aprakstiet situāciju — atbildēsim ātri.
-- [Juridiskā informācija](https://www.jumtueksperti.lv/juridiska-informacija/): Jumtu ekspertīžu biroja juridiskā un kontaktinformācija.
-- [Kontakti](https://www.jumtueksperti.lv/kontakti/): Sazinieties par jumtu ekspertīzi, būvuzraudzību, hidroizolācijas pārbaudi vai tehnisku konsultāciju.
-- [Objekti un pieredze](https://www.jumtueksperti.lv/objekti/): Objekti un ēku tipi, kuros būtiska ir jumtu, fasāžu, hidroizolācijas, būvdarbu kvalitātes un tehnisko mezglu precizitāte.
-- [Tehniskā palīdzība jumtiem, fasādēm un būvdarbiem](https://www.jumtueksperti.lv/pakalpojumi/): Jumtu ekspertīze, būvuzraudzība, hidroizolācijas pārbaude, projektu analīze un tehniskās konsultācijas jumtu un ēku jautājumos.
-- [Būvuzraudzība](https://www.jumtueksperti.lv/pakalpojumi/buvuzraudziba/): Būvdarbu kvalitātes un tehnisko risinājumu kontrole jumtu, fasāžu, hidroizolācijas un norobežojošo konstrukciju jautājumos.
-- [Hidroizolācijas pārbaude](https://www.jumtueksperti.lv/pakalpojumi/hidroizolacijas-parbaude/): Hidroizolācijas riska vietu, mitruma problēmu, jumtu, terašu, pamatu un savienojumu tehniska izvērtēšana.
-- [Jumtu ekspertīze](https://www.jumtueksperti.lv/pakalpojumi/jumtu-ekspertize/): Jumtu tehniskā apsekošana, bojājumu cēloņu izvērtēšana, pieslēgumu, seguma un ūdens novadīšanas mezglu pārbaude.
-- [Tehniskās konsultācijas](https://www.jumtueksperti.lv/pakalpojumi/konsultacijas/): Tehniskās konsultācijas jumtu, hidroizolācijas, fasāžu, būvdarbu kvalitātes un projektu risinājumu jautājumos.
-- [Projektu analīze](https://www.jumtueksperti.lv/pakalpojumi/projektu-analize/): Jumtu, fasāžu, hidroizolācijas mezglu, rasējumu un tehnisko risinājumu izvērtēšana pirms izbūves, remonta vai projekta korekcijām.
-- [Par Jumtu ekspertīžu biroju](https://www.jumtueksperti.lv/par-mums/): Par Jumtu ekspertīžu biroju, darba pieeju, tehniskajiem jautājumiem un juridisko informāciju.
-- [Privātuma politika](https://www.jumtueksperti.lv/privatuma-politika/): Jumtu ekspertīžu biroja privātuma politikas teksts saziņai, konsultāciju pieteikumiem un failu apstrādei.
-- [Sertifikāti un kvalifikācija](https://www.jumtueksperti.lv/sertifikati/): Profesionālās kvalifikācijas un apliecinājumu dokumenti, kas palīdz pārbaudīt darba pieredzi, atbildību un tehnisko kompetenci.
+- [Jumtu ekspertīžu birojs](https://www.jumtueksperti.lv/): Jumtu un ēku tehniskā apsekošana, būvuzraudzība, noplūžu cēloņu noteikšana, projektu izvērtēšana, mezglu izstrāde un apmācības. Pieredze kopš 1989. gada.
+- [Pakalpojumi](https://www.jumtueksperti.lv/pakalpojumi/): Visu pakalpojumu pārskats.
+- [Tehniskā apsekošana](https://www.jumtueksperti.lv/pakalpojumi/tehniska-apsekosana/): Jumta, fasādes, konstrukciju un visas ēkas tehniskā apsekošana.
+- [Apsekošana pirms iegādes](https://www.jumtueksperti.lv/pakalpojumi/apsekosana-pirms-iegades/): Ēkas vai dzīvokļa tehniskā pārbaude pirms pirkšanas.
+- [Noplūdes un hidroizolācija](https://www.jumtueksperti.lv/pakalpojumi/nopludes-un-hidroizolacija/): Noplūžu cēloņu noteikšana, hidroizolācijas, mitruma un kondensāta pārbaude.
+- [Būvuzraudzība un tehniskā uzraudzība](https://www.jumtueksperti.lv/pakalpojumi/uzraudziba/): Būvuzraudzība, tehniskā uzraudzība un autoruzraudzība jumta un fasādes darbiem.
+- [Projekti un mezglu izstrāde](https://www.jumtueksperti.lv/pakalpojumi/projekti-un-mezgli/): Projektu izvērtēšana, mezglu izstrāde, darbu apjomi un tāmes.
+- [Jumta drošības sistēmas](https://www.jumtueksperti.lv/pakalpojumi/jumta-drosibas-sistemas/): Kritiena aizsardzības sistēmu apsekošana un izvērtēšana.
+- [Konsultācijas](https://www.jumtueksperti.lv/pakalpojumi/konsultacijas/): Tehniskas konsultācijas par jumtiem, fasādēm, hidroizolāciju un materiāliem.
+- [Apmācības un semināri](https://www.jumtueksperti.lv/pakalpojumi/apmacibas-un-seminari/): Praktiskas apmācības un teorētiski semināri.
+- [Objekti un pieredze](https://www.jumtueksperti.lv/objekti/): Rīgas Doma baznīca, Sv. Pētera baznīca, Rundāles pils, Krustpils baznīca (2. vieta skatē Gada labākā būve Latvijā 2025) un citi objekti.
+- [Par mums — Armands Liede](https://www.jumtueksperti.lv/par-mums/): Jumiķa amata meistars, inženieris, Latvijas Jumiķu apvienības un IFD valdes loceklis.
+- [Kvalifikācija un sertifikāti](https://www.jumtueksperti.lv/sertifikati/): Meistara un inženiera diplomi, būvspeciālista sertifikāts Nr. 15-1/1-13/3 (BIS).
+- [Kontakti](https://www.jumtueksperti.lv/kontakti/): Pakalpojuma pieteikums un kontaktinformācija.
+- [Juridiskā informācija](https://www.jumtueksperti.lv/juridiska-informacija/): Uzņēmuma juridiskā un kontaktinformācija.
+- [Privātuma politika](https://www.jumtueksperti.lv/privatuma-politika/): Privātuma politika.
 
 ## Pages (Russian)
 

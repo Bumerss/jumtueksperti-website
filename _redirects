@@ -13,3 +13,9 @@ http://jumtueksperti.lv/*   https://www.jumtueksperti.lv/:splat  301!
 
 # Russian visitors get the Russian 404 page (Netlify; Cloudflare serves /404.html for all).
 /ru/*  /ru/404/index.html  404
+
+# Old service URLs (2026-11)
+/pakalpojumi/jumtu-ekspertize/  /pakalpojumi/tehniska-apsekosana/  301
+/pakalpojumi/buvuzraudziba/  /pakalpojumi/uzraudziba/  301
+/pakalpojumi/hidroizolacijas-parbaude/  /pakalpojumi/nopludes-un-hidroizolacija/  301
+/pakalpojumi/projektu-analize/  /pakalpojumi/projekti-un-mezgli/  301
