@@ -14,3 +14,4 @@
 @media(max-width:430px){:lang(ru) .service-guide-content h3{font-size:1.65rem}}
 @media(max-width:380px){:lang(ru) .hero-home h1{font-size:2.3rem}}
 @media(max-width:340px){:lang(ru) .hero-home h1{font-size:2.1rem}}
+/* JEB: lielāks logo (2026-11) */.header-inner{min-height:104px}.brand{min-width:0;flex:none}.brand-logo{width:auto;height:92px;max-height:none}@media(max-width:560px){.header-inner{min-height:84px}.brand-logo{width:auto;height:72px;max-height:none}}

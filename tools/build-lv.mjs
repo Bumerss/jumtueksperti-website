@@ -7,7 +7,9 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SITE = "https://www.jumtueksperti.lv";
-const CSS = "_astro/index.BpqaV82z.css";
+const CSS = "_astro/index.ekhXjmBN.css";
+const OG_IMAGE = SITE + "/assets/og-image.jpg";
+const CALL_BAR = `<a class="mobile-call-bar" href="tel:+37129268323"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span>Zvanīt +371 29268323</span></a>`;
 const PHONE = "+371 29268323";
 const PHONE_HREF = "tel:+37129268323";
 const EMAIL = "info@jumtueksperti.lv";
@@ -430,7 +432,7 @@ function page({ lvPath, ruPath = null, ruSwitch = "ru/", title, description, bod
   const url = SITE + "/" + lvPath;
   const ruUrl = ruPath ? SITE + "/" + ruPath.replace(/\/$/, "") : null;
   const fullTitle = lvPath ? `${title} | Jumtu ekspertīžu birojs` : title;
-  const html = `<!DOCTYPE html><html lang="lv"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(fullTitle)}</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${url}"><link rel="alternate" hreflang="lv" href="${url}">${ruUrl ? `<link rel="alternate" hreflang="ru" href="${ruUrl}">` : ""}<link rel="alternate" hreflang="x-default" href="${url}"><link rel="icon" type="image/png" href="${L.asset("favicon.png")}"><link rel="apple-touch-icon" href="${L.asset("apple-touch-icon.png")}"><meta property="og:title" content="${esc(fullTitle)}"><meta property="og:description" content="${esc(description)}"><meta property="og:type" content="website"><meta property="og:url" content="${url}"><meta property="og:locale" content="lv_LV"><meta name="theme-color" content="#c94b2d"><link rel="stylesheet" href="${L.asset(CSS)}"><link rel="stylesheet" href="${L.asset("assets/css/jeb.css")}">${extraHead}${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : ""}</head> <body class="${bodyClass}"> ${header(L, lvPath, ruPath || ruSwitch)} <main id="main"> ${main(L)} </main> ${footer(L)} </body> </html>`;
+  const html = `<!DOCTYPE html><html lang="lv"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(fullTitle)}</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${url}"><link rel="alternate" hreflang="lv" href="${url}">${ruUrl ? `<link rel="alternate" hreflang="ru" href="${ruUrl}">` : ""}<link rel="alternate" hreflang="x-default" href="${url}"><link rel="icon" type="image/png" href="${L.asset("favicon.png")}"><link rel="apple-touch-icon" href="${L.asset("apple-touch-icon.png")}"><meta property="og:title" content="${esc(fullTitle)}"><meta property="og:description" content="${esc(description)}"><meta property="og:type" content="website"><meta property="og:url" content="${url}"><meta property="og:locale" content="lv_LV"><meta property="og:locale:alternate" content="ru_RU"><meta property="og:image" content="${OG_IMAGE}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Jumtu ekspertīžu birojs — jumtu un ēku tehniskā apsekošana"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#c94b2d"><link rel="preload" href="${L.asset("_astro/fonts/open-sans-latin-wght-normal.woff2")}" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="${L.asset(CSS)}"><link rel="stylesheet" href="${L.asset("assets/css/jeb.css")}">${extraHead}${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : ""}</head> <body class="${bodyClass}"> ${header(L, lvPath, ruPath || ruSwitch)} <main id="main"> ${main(L)} </main> ${footer(L)} ${CALL_BAR} </body> </html>`;
   return html;
 }
 
@@ -640,6 +642,8 @@ function patchExisting(rp, extra = []) {
   html = html.replace(/(<a class="nav-cta"[^>]*>)Pieteikt konsultāciju(<\/a>)/, "$1Pieteikt pakalpojumu$2");
   for (const [from, to] of extra) html = html.split(from).join(to);
   html = html.split("Lizuma iela 5I").join("Lizuma iela 5J");
+  html = html.split(`<source media="(max-width: 560px)" srcset="${L.asset("assets/brand/jeb-logo-mark.png")}"> `).join("");
+  html = html.split("jumtu un ēku tehniskā ekspertīze").join("jumtu un ēku tehniskā apsekošana");
   if (html !== before) {
     fs.writeFileSync(file, html, "utf8");
     console.log("patched", rp);
