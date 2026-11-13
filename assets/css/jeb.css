@@ -128,3 +128,5 @@ a.object-mini:hover{box-shadow:var(--shadow-sm)}
 .org-card{grid-template-columns:72px 1fr;align-items:center;gap:18px}
 .org-card>div{display:grid;gap:6px}
 .org-logo{display:block;width:72px;height:72px;object-fit:contain}
+.bis-logo{display:block;width:64px;height:82px;object-fit:contain;margin-bottom:6px}
+.certificate-badge img.bis-logo{width:64px;height:82px;max-width:none;aspect-ratio:auto;object-fit:contain;padding:0;border:0;border-radius:0;box-shadow:none;background:none;transform:none}
