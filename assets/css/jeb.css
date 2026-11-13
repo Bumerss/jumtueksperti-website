@@ -139,3 +139,17 @@ a.object-mini:hover{box-shadow:var(--shadow-sm)}
 /* Darba procesa ikonas */
 .process-illus{display:grid;place-items:center;width:84px;height:84px;margin:0 0 14px;border-radius:18px;background:#fff;border:1px solid var(--color-border)}
 .process-illus svg{width:64px;height:64px}
+/* Sadaļu foni, lai sadaļas atšķirtos */
+.band-white{background:#fff;border-top:1px solid var(--color-border)}
+.band-warm{background:#f8f1ee;border-top:1px solid #efdfd8}
+.band-cool,.process-section.band-cool{background:#e8eeef;border-top:1px solid #d6dfe0}
+.band-white+.cta-band,.band-warm+.cta-band,.band-cool+.cta-band{border-top:0}
+.band-warm .help-card,.band-warm .object-mini,.band-warm .object-group,.band-warm .feature-card{background:#fff}
+/* Pakalpojumu kartītes kā pogas */
+.help-card{position:relative;cursor:pointer;transition:border-color .16s ease,box-shadow .16s ease,transform .16s ease}
+.help-card:hover{transform:translateY(-3px);border-color:var(--color-roof);box-shadow:0 14px 30px rgba(156,45,32,.14)}
+.help-more{display:inline-flex;align-items:center;gap:6px;margin-top:auto;padding-top:6px;color:var(--color-roof);font-size:.92rem;font-weight:800}
+.help-more span{display:inline-block;transition:transform .16s ease}
+.help-card:hover .help-more span,.help-card:focus-visible .help-more span{transform:translateX(4px)}
+.help-card:hover h3{color:var(--color-roof)}
+@media(prefers-reduced-motion:reduce){.help-card,.help-more span{transition:none}.help-card:hover{transform:none}}
