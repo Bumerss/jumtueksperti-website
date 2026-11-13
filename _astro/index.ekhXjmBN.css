@@ -15,3 +15,7 @@
 @media(max-width:380px){:lang(ru) .hero-home h1{font-size:2.3rem}}
 @media(max-width:340px){:lang(ru) .hero-home h1{font-size:2.1rem}}
 /* JEB: lielāks logo (2026-11) */.header-inner{min-height:104px}.brand{min-width:0;flex:none}.brand-logo{width:auto;height:92px;max-height:none}@media(max-width:560px){.header-inner{min-height:84px}.brand-logo{width:auto;height:72px;max-height:none}}
+/* JEB: galvene seko ritināšanai (overflow-x:hidden salauza sticky) */html,body{overflow-x:clip;overflow-y:visible}
+/* JEB: galvene vienmēr balta, arī virs tumšiem attēliem */.site-header{background:#fff;backdrop-filter:none;box-shadow:0 2px 12px rgba(22,22,22,.06)}
+/* JEB: aktīvā sadaļa izvēlnē */.primary-nav>a[aria-current="page"]{color:var(--color-roof);text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:10px}
+/* JEB: sadaļu virsraksts virs apraksta, nevis blakus */.section-header{display:grid;grid-template-columns:minmax(0,1fr);justify-content:start;align-items:start;gap:14px}.section-header>.lead,.section-header>p:not(.eyebrow){max-width:760px;margin:0}
