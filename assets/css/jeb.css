@@ -125,3 +125,6 @@ a.object-mini:hover{box-shadow:var(--shadow-sm)}
 .icon-illus svg{width:58px;height:58px}
 .help-card:hover .icon-illus{transform:translateY(-2px);background:#f8e1da}
 @media(prefers-reduced-motion:reduce){.icon-illus{transition:none}.help-card:hover .icon-illus{transform:none}}
+.org-card{grid-template-columns:72px 1fr;align-items:center;gap:18px}
+.org-card>div{display:grid;gap:6px}
+.org-logo{display:block;width:72px;height:72px;object-fit:contain}
