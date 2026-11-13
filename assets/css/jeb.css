@@ -119,3 +119,9 @@ a.object-mini:hover{box-shadow:var(--shadow-sm)}
   .page-hero{padding:36px 0 28px}
 }
 .object-card-extra{display:block;width:100%;max-width:360px;aspect-ratio:3/2;object-fit:cover;border-radius:6px}
+/* Ilustrētās pakalpojumu ikonas */
+.help-card{display:flex;flex-direction:column;gap:10px;padding:22px 20px}
+.icon-illus{display:grid;place-items:center;flex:none;width:76px;height:76px;margin-bottom:4px;border-radius:16px;background:#fbefeb;transition:transform .16s ease,background .16s ease}
+.icon-illus svg{width:58px;height:58px}
+.help-card:hover .icon-illus{transform:translateY(-2px);background:#f8e1da}
+@media(prefers-reduced-motion:reduce){.icon-illus{transition:none}.help-card:hover .icon-illus{transform:none}}
