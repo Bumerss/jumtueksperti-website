@@ -136,3 +136,6 @@ a.object-mini:hover{box-shadow:var(--shadow-sm)}
 .when-icon svg,.result-icon svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .supervision-result-grid span.result-icon{display:grid;place-items:center;width:52px;height:52px;border-radius:12px;background:#fbefeb;color:var(--color-roof)}
 @media(max-width:1000px){.supervision-checkpoint-list article{grid-template-columns:56px 1fr}.supervision-checkpoint-list:before{top:0;left:27px}}
+/* Darba procesa ikonas */
+.process-illus{display:grid;place-items:center;width:84px;height:84px;margin:0 0 14px;border-radius:18px;background:#fff;border:1px solid var(--color-border)}
+.process-illus svg{width:64px;height:64px}
