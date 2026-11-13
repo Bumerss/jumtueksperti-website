@@ -130,3 +130,9 @@ a.object-mini:hover{box-shadow:var(--shadow-sm)}
 .org-logo{display:block;width:72px;height:72px;object-fit:contain}
 .bis-logo{display:block;width:64px;height:82px;object-fit:contain;margin-bottom:6px}
 .certificate-badge img.bis-logo{width:64px;height:82px;max-width:none;aspect-ratio:auto;object-fit:contain;padding:0;border:0;border-radius:0;box-shadow:none;background:none;transform:none}
+/* Ikonas sadaļās "Kad šis pakalpojums noder" un "Ko jūs saņemat" */
+.supervision-checkpoint-list span.when-icon{width:56px;height:56px;color:var(--color-roof)}
+.supervision-checkpoint-list:before{top:46px}
+.when-icon svg,.result-icon svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.supervision-result-grid span.result-icon{display:grid;place-items:center;width:52px;height:52px;border-radius:12px;background:#fbefeb;color:var(--color-roof)}
+@media(max-width:1000px){.supervision-checkpoint-list article{grid-template-columns:56px 1fr}.supervision-checkpoint-list:before{top:0;left:27px}}

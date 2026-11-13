@@ -40,6 +40,62 @@ const ILLUS = {
   "apmacibas-un-seminari": '<rect x="18" y="8" width="42" height="30" rx="2" fill="#fff" stroke="#263238" stroke-width="2.5"/><path d="M26 30 38 18l12 12" fill="none" stroke="#c94b2d" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M30 30v-6h16v6" fill="none" stroke="#263238" stroke-width="2"/><path d="M39 38v8M33 56l6-10 6 10" stroke="#263238" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="11" cy="30" r="5" fill="#263238"/><path d="M3 56V44a8 8 0 0 1 16 0v12Z" fill="#c94b2d"/><path d="M16 40l8-6" stroke="#263238" stroke-width="2.5" stroke-linecap="round"/>',
 };
 const illus = (slug) => `<span class="icon-illus"><svg viewBox="0 0 64 64" aria-hidden="true">${ILLUS[slug]}</svg></span>`;
+// Līniju ikonas sadaļām "Kad šis pakalpojums noder" un "Ko jūs saņemat" (viewBox 24).
+const LINE_ICONS = {
+  crack: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="m12 3-2 5 3 3-2 4 2 6"/>',
+  hammer: '<path d="M11 9 15 5l4 4-4 4Z"/><path d="m13 11-8 8a1.5 1.5 0 0 1-2-2l8-8"/>',
+  storm: '<path d="M7 17a4 4 0 0 1-.5-8A5.5 5.5 0 0 1 17 8a3.5 3.5 0 0 1 1 6.9"/><path d="m13 12-3 5h4l-3 5"/>',
+  calendar: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+  camera: '<path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13.5" r="3.5"/>',
+  pin: '<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/>',
+  list: '<path d="M9 6h11M9 12h11M9 18h11"/><path d="m3.5 6 1.2 1.2L7 5M3.5 12l1.2 1.2L7 11M3.5 18l1.2 1.2L7 17"/>',
+  eye: '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',
+  warning: '<path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/>',
+  euro: '<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5a4 4 0 1 0 0 7M7 11h6M7 13.5h6"/>',
+  wallet: '<path d="M4 7h15a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11v3"/><path d="M16 13.5h1.5"/>',
+  doc: '<path d="M6 3h8l5 5v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5M8.5 13h7M8.5 17h5"/>',
+  chat: '<path d="M4 5h16v11H9l-5 4V5Z"/><path d="M8 9.5h8M8 12.5h5"/>',
+  drop: '<path d="M12 3s6 6.6 6 11a6 6 0 0 1-12 0c0-4.4 6-11 6-11Z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/>',
+  house: '<path d="M3 11 12 4l9 7"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-5h4v5"/>',
+  cloud: '<path d="M7 15a4 4 0 0 1-.5-8A5.5 5.5 0 0 1 17 6a3.5 3.5 0 0 1 1 6.9"/><path d="M8 18v2M12 17v3M16 18v2"/>',
+  search: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/>',
+  wrench: '<path d="M15 4a5 5 0 0 0-4.6 6.9L3.5 17.8a1.8 1.8 0 0 0 2.6 2.6l6.9-6.9A5 5 0 0 0 20 9l-3 1-2-2 1-3Z"/>',
+  clipboard: '<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="m9 13 2 2 4-4"/>',
+  shield: '<path d="M12 3 19 6v5.5c0 4.3-3 7.6-7 9-4-1.4-7-4.7-7-9V6l7-3Z"/><path d="m9 12 2 2 4-4"/>',
+  ruler: '<path d="M3 17 17 3l4 4L7 21Z"/><path d="m7 13 2 2M10 10l2 2M13 7l2 2"/>',
+  people: '<circle cx="9" cy="8" r="3"/><path d="M3 20v-1a5 5 0 0 1 10 0v1"/><circle cx="17" cy="9" r="2.5"/><path d="M15 14.5a4 4 0 0 1 6 3.5v2"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  solar: '<rect x="3" y="11" width="18" height="9" rx="1"/><path d="M3 15.5h18M9 11v9M15 11v9"/><path d="M12 3v2M7 5l1 1.5M17 5l-1 1.5"/>',
+  bulb: '<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3Z"/>',
+  question: '<circle cx="12" cy="12" r="9"/><path d="M9.6 9.5a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.7M12 16.8v.2"/>',
+  check: '<circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/>',
+  arrow: '<circle cx="12" cy="12" r="9"/><path d="M8 12h8M13 8.5 16.5 12 13 15.5"/>',
+  award: '<circle cx="12" cy="9" r="5.5"/><path d="m8.5 13.5-1.5 7 5-2.5 5 2.5-1.5-7"/>',
+  gear: '<circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/>',
+  book: '<path d="M4 5a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0-2 2Z"/><path d="M4 20a2 2 0 0 0 2 2h13v-4"/>',
+  repeat: '<path d="M4 12a8 8 0 0 1 13.7-5.6L20 8.5M20 4v4.5h-4.5M20 12a8 8 0 0 1-13.7 5.6L4 15.5M4 20v-4.5h4.5"/>',
+};
+const WHEN_ICONS = {
+  "tehniska-apsekosana": ["crack", "hammer", "storm", "calendar"],
+  "apsekosana-pirms-iegades": ["eye", "warning", "euro", "wallet"],
+  "nopludes-un-hidroizolacija": ["drop", "pin", "house", "cloud"],
+  "uzraudziba": ["house", "eye", "clipboard", "wrench"],
+  "projekti-un-mezgli": ["doc", "ruler", "award", "euro"],
+  "jumta-drosibas-sistemas": ["people", "clock", "solar"],
+  "konsultacijas": ["bulb", "question", "chat"],
+  "apmacibas-un-seminari": ["people", "repeat", "book"],
+};
+const RESULT_ICONS = {
+  "tehniska-apsekosana": ["camera", "pin", "list"],
+  "apsekosana-pirms-iegades": ["doc", "list", "chat"],
+  "nopludes-un-hidroizolacija": ["search", "wrench", "chat"],
+  "uzraudziba": ["calendar", "warning", "shield"],
+  "projekti-un-mezgli": ["ruler", "warning", "list"],
+  "jumta-drosibas-sistemas": ["shield", "pin", "doc"],
+  "konsultacijas": ["check", "arrow", "award"],
+  "apmacibas-un-seminari": ["hammer", "award", "gear"],
+};
+const lineIcon = (name) => `<svg viewBox="0 0 24 24" aria-hidden="true">${LINE_ICONS[name] || LINE_ICONS.check}</svg>`;
 
 // ---------------------------------------------------------------- Pakalpojumi
 // key = pieteikuma formas pakalpojuma atslēga (kontakti/?pakalpojums=key)
@@ -537,8 +593,8 @@ function serviceMain(s) {
     return `<section class="supervision-hero"> <div class="container supervision-hero-grid"> <div class="supervision-hero-copy"> <p class="eyebrow">${esc(s.eyebrow)}</p> <h1>${esc(s.title)}</h1> <p>${esc(s.intro)}</p> <div class="actions"> <a class="button primary" href="${L.form(s.key)}">${esc(s.cta)}</a> <a class="button secondary" href="${L.to("pakalpojumi/")}">Visi pakalpojumi</a> </div> </div> <figure class="supervision-hero-media"> <img src="${L.asset(s.img)}" alt=""> </figure> </div> </section>
 <section class="section supervision-checks-section"> <div class="container supervision-checks-layout"> <div class="supervision-checks-heading"> <p class="eyebrow">Ko ietver</p> <h2>${esc(s.includesTitle)}</h2> <p>${esc(s.includesIntro)}</p> </div> <div class="supervision-ledger"> ${ledger(s.subs)} </div> </div> </section>
 ${extra}
-<section class="section supervision-triage-section"> <div class="container"> <div class="section-header supervision-checkpoint-header"> <div> <p class="eyebrow">Kad vērsties</p> <h2>Kad šis pakalpojums noder</h2> </div> </div> <div class="supervision-checkpoint-list"> ${s.when.map(([h, p], i) => `<article> <span aria-hidden="true">${pad(i + 1)}</span> <div> <h3>${esc(h)}</h3> <p>${esc(p)}</p> </div> </article>`).join("")} </div> </div> </section>
-<section class="section supervision-results-section"> <div class="container"> <div class="section-header"> <div> <p class="eyebrow">Rezultāts</p> <h2>Ko jūs saņemat</h2> </div> </div> <div class="supervision-result-grid"> ${s.results.map(([h, p], i) => `<article> <span aria-hidden="true">${pad(i + 1)}</span> <h3>${esc(h)}</h3> <p>${esc(p)}</p> </article>`).join("")} </div> </div> </section>
+<section class="section supervision-triage-section"> <div class="container"> <div class="section-header supervision-checkpoint-header"> <div> <p class="eyebrow">Kad vērsties</p> <h2>Kad šis pakalpojums noder</h2> </div> </div> <div class="supervision-checkpoint-list"> ${s.when.map(([h, p], i) => `<article> <span class="when-icon" aria-hidden="true">${lineIcon(WHEN_ICONS[s.slug][i])}</span> <div> <h3>${esc(h)}</h3> <p>${esc(p)}</p> </div> </article>`).join("")} </div> </div> </section>
+<section class="section supervision-results-section"> <div class="container"> <div class="section-header"> <div> <p class="eyebrow">Rezultāts</p> <h2>Ko jūs saņemat</h2> </div> </div> <div class="supervision-result-grid"> ${s.results.map(([h, p], i) => `<article> <span class="result-icon" aria-hidden="true">${lineIcon(RESULT_ICONS[s.slug][i])}</span> <h3>${esc(h)}</h3> <p>${esc(p)}</p> </article>`).join("")} </div> </div> </section>
 ${objects}
 <section class="section supervision-related-section"> <div class="container"> <div class="section-header"> <h2>Saistītie pakalpojumi</h2> </div> <div class="supervision-related-grid"> ${s.related.map((slug) => { const r = serviceBySlug[slug]; return `<article> <h3>${esc(r.name)}</h3> <p>${esc(r.short)}</p> <a href="${L.to(`pakalpojumi/${r.slug}/`)}">Skatīt pakalpojumu</a> </article>`; }).join("")} </div> </div> </section>
 ${ctaBand(L, { title: CTA_TITLES[s.key], text: "Izvēlieties pakalpojumu, īsi aprakstiet situāciju un, ja iespējams, pievienojiet foto vai dokumentus. Sazināsimies par nākamo soli.", key: s.key })}`;
