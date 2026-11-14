@@ -99,3 +99,12 @@
 .choice-icon.is-illus{width:56px;height:56px;border-radius:12px;background:#fbefeb}
 .choice-icon.is-illus svg{width:44px;height:44px;fill:#000;stroke:none;stroke-width:1}
 .choice-tile input:checked+.choice-body .choice-icon.is-illus{background:#fff;box-shadow:inset 0 0 0 2px var(--color-roof)}
+
+/* Kontakti: juridiskās informācijas kartīte zem biroja kartes */
+.contact-side{display:grid;gap:22px;align-content:start}
+.contact-company-card h2{margin:0 0 14px}
+.company-list{display:grid;margin:0}
+.company-list div{display:grid;grid-template-columns:1fr;gap:2px;padding:10px 0;border-bottom:1px solid var(--color-line)}
+.company-list div:last-child{border-bottom:0;padding-bottom:0}
+.company-list dt{color:var(--color-muted);font-size:.84rem;font-weight:760}
+.company-list dd{margin:0;color:var(--color-steel);font-weight:800}

@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SITE = "https://www.jumtueksperti.lv";
-const CSS = "_astro/index.ekhXjmBN.css";
+const CSS = "_astro/index.ekhXjmBN.css?v=20261114";
 const OG_IMAGE = SITE + "/assets/og-image.jpg";
 const CALL_BAR = `<a class="mobile-call-bar" href="tel:+37129268323"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span>Zvanīt +371 29268323</span></a>`;
 const PHONE = "+371 29268323";
@@ -46,6 +46,17 @@ const FORM_ICON_KEYS = { apsekosana: "tehniska-apsekosana", "pirms-iegades": "ap
 const illus = (slug) => `<span class="icon-illus"><svg viewBox="0 0 64 64" aria-hidden="true">${ILLUS[slug]}</svg></span>`;
 // Līniju ikonas sadaļām "Kad šis pakalpojums noder" un "Ko jūs saņemat" (viewBox 24).
 const LINE_ICONS = {
+  roof: '<path d="M2 16 12 6l10 10"/><path d="M5.5 12.5h13M8.5 9.5h7"/><path d="M4 16v4h16v-4"/>',
+  building: '<rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/>',
+  facade: '<rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9.3h18M3 14.6h18M9 4v16M15 4v16"/>',
+  balcony: '<path d="M7 12V4h10v8"/><path d="M4 12h16M4 20h16M4 12v8M8 12v8M12 12v8M16 12v8M20 12v8"/>',
+  layers: '<path d="m12 3 9 5-9 5-9-5Z"/><path d="m3 13 9 5 9-5"/>',
+  link: '<path d="M9 15 15 9"/><path d="M11 6l2-2a4 4 0 0 1 6 6l-2 2M13 18l-2 2a4 4 0 0 1-6-6l2-2"/>',
+  ladder: '<path d="M8 3v18M16 3v18M8 7h8M8 12h8M8 17h8"/>',
+  anchor: '<circle cx="12" cy="6" r="3"/><path d="M12 9v4M7 21l5-8 5 8"/>',
+  pencil: '<path d="M4 20l1-4L16 5l3 3L8 19Z"/><path d="m14 7 3 3"/>',
+  helmet: '<path d="M4 16v-2a8 8 0 0 1 16 0v2"/><path d="M10 6.5V4h4v2.5"/><path d="M2 16h20v3H2z"/>',
+  scale: '<path d="M12 4v16M6 20h12M5 8h14"/><path d="m5 8-3 6h6ZM19 8l-3 6h6Z"/>',
   crack: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="m12 3-2 5 3 3-2 4 2 6"/>',
   hammer: '<path d="M11 9 15 5l4 4-4 4Z"/><path d="m13 11-8 8a1.5 1.5 0 0 1-2-2l8-8"/>',
   storm: '<path d="M7 17a4 4 0 0 1-.5-8A5.5 5.5 0 0 1 17 8a3.5 3.5 0 0 1 1 6.9"/><path d="m13 12-3 5h4l-3 5"/>',
@@ -99,6 +110,17 @@ const RESULT_ICONS = {
   "konsultacijas": ["check", "arrow", "award"],
   "apmacibas-un-seminari": ["hammer", "award", "gear"],
 };
+const SUB_ICONS = {
+  "tehniska-apsekosana": ["roof", "building", "search", "facade", "balcony"],
+  "apsekosana-pirms-iegades": ["house", "building", "facade", "list"],
+  "nopludes-un-hidroizolacija": ["drop", "balcony", "layers", "search", "cloud"],
+  "uzraudziba": ["helmet", "eye", "pencil", "layers", "clipboard", "wrench"],
+  "projekti-un-mezgli": ["doc", "layers", "pencil", "search", "hammer", "link"],
+  "jumta-drosibas-sistemas": ["anchor", "pin", "doc", "ladder"],
+  "konsultacijas": ["roof", "facade", "balcony", "layers", "wrench"],
+  "apmacibas-un-seminari": ["hammer", "book", "helmet", "pencil", "house", "gear"],
+};
+const EXTRA_ICONS = { "projekti-un-mezgli": ["list", "ruler", "euro", "scale"] };
 const lineIcon = (name) => `<svg viewBox="0 0 24 24" aria-hidden="true">${LINE_ICONS[name] || LINE_ICONS.check}</svg>`;
 // Ilustrētas darba procesa ikonas (viewBox 64).
 const PROCESS_ICONS = [
@@ -501,7 +523,7 @@ function footerServices(to) {
 
 function header(L, lvPath, ruPath) {
   const to = L.to;
-  return `<a class="skip-link" href="#main">Pāriet uz saturu</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="${to("")}" aria-label="Jumtu ekspertīžu birojs sākums"> <picture> <img class="brand-logo" src="${L.asset("assets/brand/jeb-logo-full.png")}" alt="Jumtu ekspertīžu birojs"> </picture> </a> <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"> <span></span> <span></span> <span></span> <span class="sr-only">Atvērt navigāciju</span> </button> <nav id="primary-nav" class="primary-nav" aria-label="Galvenā navigācija"> <a href="${to("")}">Sākums</a><a href="${to("pakalpojumi/")}">Pakalpojumi</a><a href="${to("objekti/")}">Objekti</a><a href="${to("sertifikati/")}">Sertifikāti</a><a href="${to("par-mums/")}">Par mums</a><a href="${to("kontakti/")}">Kontakti</a> <div class="language-switcher" aria-label="Valoda"> <a href="${to(lvPath)}" data-lang-link class="is-active" lang="lv" hreflang="lv">LV</a> <a href="${to(ruPath)}" data-lang-link lang="ru" hreflang="ru">RU</a> </div> <a class="nav-cta" href="${L.form()}">Pieteikt pakalpojumu</a> </nav> </div> </header> ${MENU_SCRIPT}`;
+  return `<a class="skip-link" href="#main">Pāriet uz saturu</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="${to("")}" aria-label="Jumtu ekspertīžu birojs sākums"> <picture> <img class="brand-logo" src="${L.asset("assets/brand/jeb-logo-full.png")}" alt="Jumtu ekspertīžu birojs"> </picture> </a> <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"> <span></span> <span></span> <span></span> <span class="sr-only">Atvērt navigāciju</span> </button> <nav id="primary-nav" class="primary-nav" aria-label="Galvenā navigācija"> <a href="${to("")}">Sākums</a><a href="${to("pakalpojumi/")}">Pakalpojumi</a><a href="${to("objekti/")}">Objekti</a><a href="${to("padomi/")}">Padomi un video</a><a href="${to("sertifikati/")}">Sertifikāti</a><a href="${to("par-mums/")}">Par mums</a><a href="${to("kontakti/")}">Kontakti</a> <div class="language-switcher" aria-label="Valoda"> <a href="${to(lvPath)}" data-lang-link class="is-active" lang="lv" hreflang="lv">LV</a> <a href="${to(ruPath)}" data-lang-link lang="ru" hreflang="ru">RU</a> </div> <a class="nav-cta" href="${L.form()}">Pieteikt pakalpojumu</a> </nav> </div> </header> ${MENU_SCRIPT}`;
 }
 
 function footer(L) {
@@ -516,7 +538,7 @@ function page({ lvPath, ruPath = null, ruSwitch = "ru/", title, description, bod
   const url = SITE + "/" + lvPath;
   const ruUrl = ruPath ? SITE + "/" + ruPath.replace(/\/$/, "") : null;
   const fullTitle = lvPath ? `${title} | Jumtu ekspertīžu birojs` : title;
-  const html = `<!DOCTYPE html><html lang="lv"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(fullTitle)}</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${url}"><link rel="alternate" hreflang="lv" href="${url}">${ruUrl ? `<link rel="alternate" hreflang="ru" href="${ruUrl}">` : ""}<link rel="alternate" hreflang="x-default" href="${url}"><link rel="icon" type="image/png" href="${L.asset("favicon.png")}"><link rel="apple-touch-icon" href="${L.asset("apple-touch-icon.png")}"><meta property="og:title" content="${esc(fullTitle)}"><meta property="og:description" content="${esc(description)}"><meta property="og:type" content="website"><meta property="og:url" content="${url}"><meta property="og:locale" content="lv_LV"><meta property="og:locale:alternate" content="ru_RU"><meta property="og:image" content="${OG_IMAGE}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Jumtu ekspertīžu birojs — jumtu un ēku tehniskā apsekošana"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#c94b2d"><link rel="preload" href="${L.asset("_astro/fonts/open-sans-latin-wght-normal.woff2")}" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="${L.asset(CSS)}"><link rel="stylesheet" href="${L.asset("assets/css/jeb.css")}">${extraHead}${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : ""}</head> <body class="${bodyClass}"> ${header(L, lvPath, ruPath || ruSwitch)} <main id="main"> ${main(L)} </main> ${footer(L)} ${CALL_BAR} </body> </html>`;
+  const html = `<!DOCTYPE html><html lang="lv"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(fullTitle)}</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${url}"><link rel="alternate" hreflang="lv" href="${url}">${ruUrl ? `<link rel="alternate" hreflang="ru" href="${ruUrl}">` : ""}<link rel="alternate" hreflang="x-default" href="${url}"><link rel="icon" type="image/png" href="${L.asset("favicon.png")}"><link rel="apple-touch-icon" href="${L.asset("apple-touch-icon.png")}"><meta property="og:title" content="${esc(fullTitle)}"><meta property="og:description" content="${esc(description)}"><meta property="og:type" content="website"><meta property="og:url" content="${url}"><meta property="og:locale" content="lv_LV"><meta property="og:locale:alternate" content="ru_RU"><meta property="og:image" content="${OG_IMAGE}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Jumtu ekspertīžu birojs — jumtu un ēku tehniskā apsekošana"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#c94b2d"><link rel="preload" href="${L.asset("_astro/fonts/open-sans-latin-wght-normal.woff2")}" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="${L.asset(CSS)}"><link rel="stylesheet" href="${L.asset("assets/css/jeb.css?v=20261114")}">${extraHead}${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : ""}</head> <body class="${bodyClass}"> ${header(L, lvPath, ruPath || ruSwitch)} <main id="main"> ${main(L)} </main> ${footer(L)} ${CALL_BAR} </body> </html>`;
   return html;
 }
 
@@ -580,7 +602,7 @@ ${ctaBand(L, { title: "Sāksim ar jūsu situāciju", text: "Izvēlieties pakalpo
 // ---------------------------------------------------------------- Pakalpojumu pārskats
 function servicesIndexMain(L) {
   return `<section class="section band-white"> <div class="container"> <div class="section-header"> <div> <p class="eyebrow">Pakalpojumi</p> <h1>Izvēlieties, kas jums nepieciešams</h1> </div> <p class="lead">Tehniskā apsekošana, uzraudzība, projektu izvērtēšana, mezglu izstrāde, konsultācijas un apmācības jumtiem, fasādēm un hidroizolācijai.</p> </div> <div class="help-grid"> ${SERVICES.map((s) => `<a class="help-card" href="${L.to(`pakalpojumi/${s.slug}/`)}">${illus(s.slug)}<h3>${esc(s.name)}</h3><p>${esc(s.short)}</p><span class="help-more">Uzzināt vairāk <span aria-hidden="true">→</span></span></a>`).join("")} </div> </div> </section>
-${SERVICES.map((s, i) => `<section class="section ${i % 2 ? "band-white" : "band-warm"}"> <div class="container supervision-checks-layout"> <div class="supervision-checks-heading"> <p class="eyebrow">${pad(i + 1)} · ${esc(s.eyebrow)}</p> <h2>${esc(s.title)}</h2> <p>${esc(s.intro)}</p> <p><a class="text-link" href="${L.to(`pakalpojumi/${s.slug}/`)}">Vairāk par pakalpojumu</a></p> </div> <div class="supervision-ledger"> ${s.subs.map(([h, p], j) => `<article><span aria-hidden="true">${pad(j + 1)}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></article>`).join("")} </div> </div> </section>`).join("\n")}
+${SERVICES.map((s, i) => `<section class="section ${i % 2 ? "band-white" : "band-warm"}"> <div class="container supervision-checks-layout"> <div class="supervision-checks-heading"> <p class="eyebrow">${pad(i + 1)} · ${esc(s.eyebrow)}</p> <h2>${esc(s.title)}</h2> <p>${esc(s.intro)}</p> <p><a class="text-link" href="${L.to(`pakalpojumi/${s.slug}/`)}">Vairāk par pakalpojumu</a></p> </div> <div class="supervision-ledger"> ${s.subs.map(([h, p], j) => `<article><span class="sub-icon" aria-hidden="true">${lineIcon(SUB_ICONS[s.slug][j] || "check")}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></article>`).join("")} </div> </div> </section>`).join("\n")}
 ${ctaBand(L, { title: "Nav skaidrs, kurš pakalpojums vajadzīgs?", text: "Pieteikumā izvēlieties „Cits jautājums” vai zvaniet — palīdzēsim izvēlēties piemērotāko risinājumu." })}`;
 }
 
@@ -598,15 +620,15 @@ const CTA_TITLES = {
 
 function serviceMain(s) {
   return (L) => {
-    const ledger = (items) => items.map(([h, p], i) => `<article><span aria-hidden="true">${pad(i + 1)}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></article>`).join("");
+    const ledger = (items, icons = []) => items.map(([h, p], i) => `<article><span class="sub-icon" aria-hidden="true">${lineIcon(icons[i] || "check")}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></article>`).join("");
     const extra = s.extra
-      ? `<section class="section supervision-checks-section"> <div class="container supervision-checks-layout"> <div class="supervision-checks-heading"> <p class="eyebrow">Apjomi un tāmes</p> <h2>${esc(s.extra.title)}</h2> <p>${esc(s.extra.intro)}</p> </div> <div class="supervision-ledger"> ${ledger(s.extra.items)} </div> </div> </section>`
+      ? `<section class="section supervision-checks-section"> <div class="container supervision-checks-layout"> <div class="supervision-checks-heading"> <p class="eyebrow">Apjomi un tāmes</p> <h2>${esc(s.extra.title)}</h2> <p>${esc(s.extra.intro)}</p> </div> <div class="supervision-ledger"> ${ledger(s.extra.items, EXTRA_ICONS[s.slug])} </div> </div> </section>`
       : "";
     const objects = s.objects.length
       ? `<section class="section"> <div class="container"> <div class="section-header"> <div> <p class="eyebrow">Pieredze</p> <h2>Saistītie objekti</h2> </div> </div> <div class="object-mini-grid"> ${s.objects.map((id) => objectMini(L, id)).join("")} </div> </div> </section>`
       : "";
-    return `<section class="supervision-hero"> <div class="container supervision-hero-grid"> <div class="supervision-hero-copy"> <p class="eyebrow">${esc(s.eyebrow)}</p> <h1>${esc(s.title)}</h1> <p>${esc(s.intro)}</p> <div class="actions"> <a class="button primary" href="${L.form(s.key)}">${esc(s.cta)}</a> <a class="button secondary" href="${L.to("pakalpojumi/")}">Visi pakalpojumi</a> </div> </div> <figure class="supervision-hero-media"> <img src="${L.asset(s.img)}" alt=""> </figure> </div> </section>
-<section class="section supervision-checks-section"> <div class="container supervision-checks-layout"> <div class="supervision-checks-heading"> <p class="eyebrow">Ko ietver</p> <h2>${esc(s.includesTitle)}</h2> <p>${esc(s.includesIntro)}</p> </div> <div class="supervision-ledger"> ${ledger(s.subs)} </div> </div> </section>
+    return `<section class="supervision-hero"> <div class="container supervision-hero-grid"> <div class="supervision-hero-copy"> <p class="eyebrow">${esc(s.eyebrow)}</p> <h1>${esc(s.title)}</h1> <p>${esc(s.intro)}</p> <div class="actions"> <a class="button primary" href="${L.form(s.key)}">${esc(s.cta)}</a> <a class="button secondary" href="${L.to("pakalpojumi/")}">Visi pakalpojumi</a> </div> </div> <figure class="service-hero-illus" aria-hidden="true"><svg viewBox="0 0 64 64">${ILLUS[s.slug]}</svg></figure> </div> </section>
+<section class="section supervision-checks-section"> <div class="container supervision-checks-layout"> <div class="supervision-checks-heading"> <p class="eyebrow">Ko ietver</p> <h2>${esc(s.includesTitle)}</h2> <p>${esc(s.includesIntro)}</p> </div> <div class="supervision-ledger"> ${ledger(s.subs, SUB_ICONS[s.slug])} </div> </div> </section>
 ${extra}
 <section class="section supervision-triage-section"> <div class="container"> <div class="section-header supervision-checkpoint-header"> <div> <p class="eyebrow">Kad vērsties</p> <h2>Kad šis pakalpojums noder</h2> </div> </div> <div class="supervision-checkpoint-list"> ${s.when.map(([h, p], i) => `<article> <span class="when-icon" aria-hidden="true">${lineIcon(WHEN_ICONS[s.slug][i])}</span> <div> <h3>${esc(h)}</h3> <p>${esc(p)}</p> </div> </article>`).join("")} </div> </div> </section>
 <section class="section supervision-results-section"> <div class="container"> <div class="section-header"> <div> <p class="eyebrow">Rezultāts</p> <h2>Ko jūs saņemat</h2> </div> </div> <div class="supervision-result-grid"> ${s.results.map(([h, p], i) => `<article> <span class="result-icon" aria-hidden="true">${lineIcon(RESULT_ICONS[s.slug][i])}</span> <h3>${esc(h)}</h3> <p>${esc(p)}</p> </article>`).join("")} </div> </div> </section>
@@ -660,7 +682,6 @@ function aboutMain(L) {
   ];
   const materials = ["Māla un betona dakstiņi", "Dabīgais šīferis", "Niedru jumti", "Zaļie jumti", "Metāla jumti un fasādes", "Titāncinks, varš, alumīnijs", "Šķiedrcementa fasādes", "Keramiskās fasādes", "PVC membrānas", "Bitumena hidroizolācija", "Siltumizolācija", "Jumta drošības sistēmas", "Saules paneļu stiprinājumi"];
   return `<section class="section band-white"> <div class="container"><h1 class="page-title">Par mums</h1></div> <div class="container profile-layout" id="armands-liede"> <aside class="profile-aside"> <span class="profile-monogram" aria-hidden="true">AL</span> <h2>Armands Liede</h2> <p>SIA „Jumtu ekspertīžu birojs” valdes priekšsēdētājs</p> <dl class="fact-list"> <div><dt>Kvalifikācija</dt><dd>Jumiķa amata meistars, LAK diploms Nr. 3928</dd></div> <div><dt>Izglītība</dt><dd>Amatniecības tehnoloģiju un dizaina inženieris, RTU</dd></div> <div><dt>Būvspeciālista sertifikāts</dt><dd><a href="https://bis.gov.lv/bisp/lv/specialist_certificates" target="_blank" rel="noopener">Nr. 15-1/1-13/3</a>, jumiķis</dd></div> <div><dt>Pieredze</dt><dd>Kopš 1989. gada</dd></div> <div><dt>Nozares organizācijas</dt><dd>Latvijas Jumiķu apvienības valdes loceklis, IFD valdes loceklis kopš 2016. gada</dd></div> </dl> </aside> <div class="profile-main"> <section> <p class="eyebrow">Pieredze</p> <h3>No niedru jumtiem līdz Rīgas Doma baznīcai</h3> <p>Profesionālo karjeru Armands Liede sāka ar niedru jumtu ierīkošanu. Lielāko daļu Latvijas Etnogrāfiskajā brīvdabas muzejā redzamo niedru jumtu ir veidojis viņš un viņa apmācītie meistari. Zināšanas jumtu segumu tehnoloģijās iegūtas prakses laikā Vācijā un pēc tam papildinātas ar regulārām apmācībām pie Eiropas ražotājiem.</p> <p>Šodien biroja darbs ietver jumtu un ēku tehnisko apsekošanu, būvuzraudzību, mezglu un konstruktīvo risinājumu izstrādi un konsultācijas. Pieredze ietver nozīmīgas vēsturiskas un publiskas ēkas — Rīgas Doma baznīcu, Rīgas Sv. Pētera baznīcu, Rundāles pili, Rīgas pili un Latvijas Nacionālo bibliotēku —, kā arī konsultācijas Vācijā, Šveicē, Dānijā un Anglijā.</p> <p><a class="text-link" href="${L.to("objekti/")}">Skatīt objektus</a></p> </section> <section> <p class="eyebrow">Nozare</p> <h3>Darbs nozarē un izglītībā</h3> <p>1995. gadā Armands Liede bija viens no Latvijas Jumiķu biedrības dibinātājiem un tās pirmais priekšsēdētājs. Ilgus gadus vadīja Latvijas Jumiķu apvienības valdi, šobrīd ir tās valdes loceklis. Kopš 2016. gada — Starptautiskās Jumiķu federācijas (IFD) valdes loceklis, atbildīgs par ilgtspējīgas būvniecības politiku un kontaktpersona Austrumeiropas valstīm.</p> <p>2018. gadā organizēja 27. IFD kongresu un Pasaules jauno jumiķu čempionātu Rīgā, kurā piedalījās 30 komandas no 11 valstīm. Izstrādājis jumiķa un namdara profesiju standartus, kopš 2010. gada strādā par lektoru arodskolās, tehnikumos un nozares semināros.</p> <p><a class="text-link" href="${L.to("pakalpojumi/apmacibas-un-seminari/")}">Apmācības un semināri</a></p> </section> <section> <p class="eyebrow">Kompetences</p> <h3>Materiāli un sistēmas</h3> <ul class="chip-list"> ${materials.map((m) => `<li>${MATERIAL_TEXTURES[m] ? `<svg viewBox="0 0 64 64" aria-hidden="true">${MATERIAL_TEXTURES[m]}</svg>` : ""}${esc(m)}</li>`).join("")} </ul> </section> <section> <p class="eyebrow">Profesionālā pilnveide</p> <h3>Apmācības pie ražotājiem</h3> <ol class="timeline"> ${courses.map(([y, t]) => `<li><b>${y}</b><span>${esc(t)}</span></li>`).join("")} </ol> </section> </div> </div> </section>
-<section class="section about-company-section"> <div class="container about-company-layout"> <div class="about-company-copy"> <p class="eyebrow">Uzņēmuma dati</p> <h2>Juridiskā informācija</h2> <h3>&quot;Jumtu ekspertīžu birojs&quot; SIA</h3> <p>Uzņēmuma dati sadarbībai, dokumentu pārbaudei un oficiālai saziņai.</p> </div> <dl class="about-company-table"> <div> <dt>Reģistrācijas numurs</dt> <dd>40003733048</dd> </div><div> <dt>PVN numurs</dt> <dd>LV40003733048</dd> </div><div> <dt>BIS reģistrācija</dt> <dd>12304</dd> </div><div> <dt>Biroja adrese</dt> <dd>${ADDRESS}</dd> </div> </dl> </div> </section>
 ${ctaBand(L, { title: "Nepieciešams tehnisks izvērtējums?", text: "Izvēlieties pakalpojumu un īsi aprakstiet situāciju. Sazināsimies par nākamo soli." })}`;
 }
 
@@ -671,6 +692,54 @@ function certsMain(L) {
 <section class="section certificate-documents-section"> <div class="container"> <div class="section-header certificates-header"> <div> <p class="eyebrow">Dokumenti</p> <h2>Izglītība un kvalifikācija</h2> </div> <p class="lead">Būvspeciālista sertifikāta derīgumu var pārbaudīt Būvniecības informācijas sistēmas publiskajā reģistrā.</p> </div> <div class="certificate-grid"> ${doc("assets/certificates/redacted/meistara-diploms.jpg", "Jumiķa amata meistara diploms", "Profesionālā kvalifikācija", "Latvijas Amatniecības kameras jumiķa amata meistara diploms Nr. 3928, 1996.")} ${doc("assets/certificates/redacted/inzeniera-diploms.jpg", "Inženiera diploms", "Izglītība", "Amatniecības tehnoloģiju un dizaina inženiera grāds, Rīgas Tehniskā universitāte.")} <article class="certificate-card"> <a class="certificate-preview certificate-badge" href="https://bis.gov.lv/bisp/lv/specialist_certificates" target="_blank" rel="noopener" aria-label="Pārbaudīt sertifikātu BIS būvspeciālistu reģistrā"> <img class="bis-logo" src="${L.asset("assets/brand/bis-logo.png")}" alt="" width="64" height="82" loading="lazy"> <span>BIS būvspeciālistu reģistrs</span> <strong>15-1/1-13/3</strong> <span>Sfēra: jumiķis</span> </a> <div class="certificate-card-copy"> <span>Būvspeciālista sertifikāts</span> <h2>Sertifikāts Nr. 15-1/1-13/3</h2> <p>Sfēra: jumiķis. Izsniedza Latvijas Amatniecības kamera, derīgs līdz 05.06.2029. Pārbaudei reģistrā meklējiet pēc sertifikāta numura.</p> <a class="text-link" href="https://bis.gov.lv/bisp/lv/specialist_certificates" target="_blank" rel="noopener">Pārbaudīt BIS reģistrā</a> </div> </article> </div> </div> </section>
 <section class="section band-warm"> <div class="container"> <div class="section-header"> <div> <p class="eyebrow">Nozares organizācijas</p> <h2>Darbs nozares organizācijās</h2> </div> </div> <div class="org-grid"> <article class="object-mini org-card"><img class="org-logo" src="${L.asset("assets/brand/lja-logo.png")}" alt="Latvijas Jumiķu apvienības logo" width="72" height="72" loading="lazy"><div><h3>Latvijas Jumiķu apvienība</h3><p>Valdes loceklis, ilggadējs valdes priekšsēdētājs. 1995. gadā viens no Latvijas Jumiķu biedrības dibinātājiem un tās pirmais priekšsēdētājs.</p></div></article> <article class="object-mini org-card"><img class="org-logo" src="${L.asset("assets/brand/ifd-logo.png")}" alt="IFD logo" width="57" height="72" loading="lazy"><div><h3>Starptautiskā Jumiķu federācija (IFD)</h3><p>Valdes loceklis kopš 2016. gada, atbildīgs par ilgtspējīgas būvniecības politiku, kontaktpersona Austrumeiropas valstīm.</p></div></article> </div> </div> </section>
 ${ctaBand(L, { title: "Nepieciešams tehnisks izvērtējums?", text: "Izvēlieties pakalpojumu un īsi aprakstiet situāciju. Sazināsimies par nākamo soli." })}`;
+}
+
+
+// ---------------------------------------------------------------- Padomi un video (YouTube Shorts)
+// Pievieno video sarakstā VIDEOS. Lapa paredzēta vertikāliem YouTube Shorts (9:16).
+//   title    – virsraksts (obligāts)
+//   summary  – 1–2 teikumi, par ko video (palīdz arī Google)
+//   url      – YouTube Shorts saite, piem. https://youtube.com/shorts/XXXXXXXXXXX
+//   date     – publicēšanas datums GGGG-MM-DD (vajadzīgs, lai Google rādītu video rezultātos)
+//   service  – pakalpojuma slug, piem. "nopludes-un-hidroizolacija" (nav obligāts)
+// Piemērs:
+//   { title: "Kāpēc jumts tek arī pēc remonta?", summary: "Trīs biežākie cēloņi.", url: "https://youtube.com/shorts/XXXXXXXXXXX", date: "2026-11-20", service: "nopludes-un-hidroizolacija" },
+const VIDEOS = [];
+// YouTube kanāla adrese, piem. "https://www.youtube.com/@jumtueksperti". Ja tukša, poga netiek rādīta.
+const YOUTUBE_CHANNEL = "";
+const PLANNED_VIDEOS = [
+  ["drop", "Kāpēc jumts tek arī pēc remonta?", "Biežākie noplūžu cēloņi un kā tos atrast."],
+  ["house", "Ko pārbaudīt pirms ēkas iegādes?", "Galvenās riska vietas jumtā, fasādē un bēniņos."],
+  ["pencil", "Jumta mezgli tuvplānā", "Kā izskatās pareizi izbūvēts pieslēgums."],
+  ["shield", "Droša piekļuve jumtam", "Kad vajadzīga kritiena aizsardzība."],
+  ["layers", "Kondensāts bēniņos", "Kāpēc rodas mitrums un pelējums."],
+  ["clipboard", "Kā pieņemt jumta darbus", "Kas jāpārbauda pirms akta parakstīšanas."],
+];
+const youtubeId = (url) => (url.match(/(?:youtu\.be\/|v=|shorts\/|embed\/)([\w-]{11})/) || [])[1] || "";
+
+function videosJsonLd() {
+  const items = VIDEOS.filter((v) => youtubeId(v.url) && v.date).map((v) => {
+    const id = youtubeId(v.url);
+    return { "@type": "VideoObject", name: v.title, description: v.summary || v.title, thumbnailUrl: `https://i.ytimg.com/vi/${id}/hqdefault.jpg`, uploadDate: v.date, embedUrl: `https://www.youtube-nocookie.com/embed/${id}`, contentUrl: `https://www.youtube.com/shorts/${id}`, publisher: { "@id": SITE + "/#organization" } };
+  });
+  return items.length ? { "@context": "https://schema.org", "@graph": items } : null;
+}
+
+function padomiMain(L) {
+  const shortCard = (v) => {
+    const id = youtubeId(v.url);
+    const svc = v.service && serviceBySlug[v.service];
+    const media = id
+      ? `<button type="button" class="short-thumb" data-yt="${id}" aria-label="Atskaņot video: ${esc(v.title)}"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy"><span class="short-shade" aria-hidden="true"></span><span class="video-play" aria-hidden="true"></span><span class="short-title">${esc(v.title)}</span></button>`
+      : `<a class="short-thumb" href="${esc(v.url)}" target="_blank" rel="noopener"><span class="video-play" aria-hidden="true"></span><span class="short-title">${esc(v.title)}</span></a>`;
+    return `<article class="short-card">${media}<div class="short-body"><h3>${esc(v.title)}</h3>${v.summary ? `<p>${esc(v.summary)}</p>` : ""}${svc ? `<a class="text-link" href="${L.to(`pakalpojumi/${svc.slug}/`)}">${esc(svc.name)}</a>` : ""}</div></article>`;
+  };
+  const soonCard = ([ic, t, d]) => `<article class="short-card short-card--soon"><div class="short-thumb short-thumb--soon"><span class="sub-icon">${lineIcon(ic)}</span><span class="video-soon">Drīzumā</span></div><div class="short-body"><h3>${esc(t)}</h3><p>${esc(d)}</p></div></article>`;
+  const grid = `<div class="shorts-grid">${VIDEOS.length ? VIDEOS.map(shortCard).join("") : PLANNED_VIDEOS.map(soonCard).join("")}</div>`;
+  const channel = YOUTUBE_CHANNEL ? `<p class="section-more"><a class="button primary" href="${esc(YOUTUBE_CHANNEL)}" target="_blank" rel="noopener">Skatīties visus video YouTube</a></p>` : "";
+  return `<section class="section band-white"> <div class="container"> <div class="section-header"> <div> <p class="eyebrow">Padomi un video</p> <h1>Padomi un video</h1> </div> <p class="lead">Īsi, praktiski video par jumtiem, fasādēm un hidroizolāciju: kā atpazīt problēmu, ko pārbaudīt un kā izskatās kvalitatīvi izbūvēts mezgls.</p> </div> ${grid} ${channel} </div> </section>
+${ctaBand(L, { title: "Vai video neatbildēja uz jūsu jautājumu?", text: "Aprakstiet situāciju, un ieteiksim piemērotāko risinājumu jūsu ēkai." })}
+<script>document.querySelectorAll("[data-yt]").forEach(function(b){b.addEventListener("click",function(){var f=document.createElement("iframe");f.src="https://www.youtube-nocookie.com/embed/"+b.dataset.yt+"?autoplay=1&rel=0&playsinline=1";f.title=b.getAttribute("aria-label")||"Video";f.allow="autoplay; encrypted-media; picture-in-picture";f.allowFullscreen=true;f.className="short-frame";b.replaceWith(f);});});</script>`;
 }
 
 // ---------------------------------------------------------------- Pāradresācija no vecajām adresēm
@@ -721,6 +790,12 @@ write("par-mums/index.html", page({
   main: aboutMain, jsonld: { "@context": "https://schema.org", "@graph": [PERSON, ORG] },
 }));
 
+write("padomi/index.html", page({
+  lvPath: "padomi/", title: "Padomi un video",
+  description: "Īsi izglītojoši video par jumtiem, fasādēm un hidroizolāciju: noplūžu cēloņi, pārbaude pirms ēkas iegādes, jumta mezgli un droša piekļuve jumtam.",
+  main: padomiMain, jsonld: videosJsonLd(),
+}));
+
 write("sertifikati/index.html", page({
   lvPath: "sertifikati/", ruPath: "ru/sertifikaty/", title: "Kvalifikācija un sertifikāti",
   description: "Jumiķa amata meistara diploms Nr. 3928, inženiera diploms, būvspeciālista sertifikāts Nr. 15-1/1-13/3 (BIS), darbs Latvijas Jumiķu apvienības un IFD valdēs.",
@@ -739,7 +814,17 @@ function patchExisting(rp, extra = []) {
   html = html.replace(/(<a class="nav-cta"[^>]*>)Pieteikt konsultāciju(<\/a>)/, "$1Pieteikt pakalpojumu$2");
   for (const [from, to] of extra) html = html.split(from).join(to);
   html = html.split("Lizuma iela 5I").join("Lizuma iela 5J");
+  if (!html.includes("padomi/index.html")) html = html.replace(/(<a href="([^"]*)objekti\/index\.html"[^>]*>Objekti<\/a>)/, '$1<a href="$2padomi/index.html">Padomi un video</a>');
   html = html.replace(/(data-key="([a-z-]+)" required><span class="choice-body"><span class="choice-icon)[^"]*(" aria-hidden="true">)<svg[\s\S]*?<\/svg>/g, (m, a, key, b) => FORM_ICON_KEYS[key] ? `${a} is-illus${b}<svg viewBox="0 0 64 64">${ILLUS[FORM_ICON_KEYS[key]]}</svg>` : m);
+  if (rp === "kontakti/index.html") {
+    html = html.replace(/<section class="section about-company-section" id="uznemuma-dati">[\s\S]*?<\/section> /, "");
+    if (!html.includes("contact-side")) {
+      html = html.replace('<div class="panel contact-office-card">', '<div class="contact-side"><div class="panel contact-office-card">');
+      html = html.replace('Atvērt maršrutu Google Maps</a> </div>', 'Atvērt maršrutu Google Maps</a> </div>' + COMPANY_CARD + '</div>');
+    }
+    html = html.replace(/<li><span>Biroja adrese<\/span>[^<]*<\/li>\s*/, "");
+    html = html.replace(/<p>Juridiskā adrese: [^<]*<\/p>\s*/, "");
+  }
   html = html.replace(/<section class="contact-hero">[\s\S]*?<\/section>/, '<h1 class="sr-only">Kontakti</h1>');
   html = html.split(`<source media="(max-width: 560px)" srcset="${L.asset("assets/brand/jeb-logo-mark.png")}"> `).join("");
   html = html.split("jumtu un ēku tehniskā ekspertīze").join("jumtu un ēku tehniskā apsekošana");
@@ -749,6 +834,8 @@ function patchExisting(rp, extra = []) {
   }
 }
 
+const COMPANY_SECTION = `<section class="section about-company-section" id="uznemuma-dati"> <div class="container about-company-layout"> <div class="about-company-copy"> <p class="eyebrow">Uzņēmuma dati</p> <h2>Juridiskā informācija</h2> <h3>&quot;Jumtu ekspertīžu birojs&quot; SIA</h3> <p>Uzņēmuma dati sadarbībai, dokumentu pārbaudei un oficiālai saziņai.</p> </div> <dl class="about-company-table"> <div> <dt>Reģistrācijas numurs</dt> <dd>40003733048</dd> </div><div> <dt>PVN numurs</dt> <dd>LV40003733048</dd> </div><div> <dt>BIS reģistrācija</dt> <dd>12304</dd> </div><div> <dt>Juridiskā adrese</dt> <dd>${ADDRESS}</dd> </div> </dl> </div> </section> `;
+const COMPANY_CARD = `<div class="panel contact-company-card" id="uznemuma-dati"> <h2>Juridiskā informācija</h2> <dl class="company-list"> <div><dt>Uzņēmums</dt><dd>&quot;Jumtu ekspertīžu birojs&quot; SIA</dd></div> <div><dt>Reģistrācijas numurs</dt><dd>40003733048</dd></div> <div><dt>PVN numurs</dt><dd>LV40003733048</dd></div> <div><dt>BIS reģistrācija</dt><dd>12304</dd></div> <div><dt>Juridiskā adrese</dt><dd>${ADDRESS}</dd></div> </dl> </div>`;
 const KONTAKTI_DESC = "Pieteikt jumta vai ēkas tehnisko apsekošanu, būvuzraudzību, noplūžu pārbaudi, projektu izvērtēšanu, konsultāciju vai apmācības.";
 patchExisting("kontakti/index.html", [
   ["Sazinieties par jumtu ekspertīzi, būvuzraudzību, hidroizolācijas pārbaudi vai tehnisku konsultāciju.", KONTAKTI_DESC],
@@ -760,7 +847,7 @@ patchExisting("juridiska-informacija/index.html");
 patchExisting("404.html");
 
 // ---------------------------------------------------------------- Sitemap
-const lvUrls = ["", "pakalpojumi/", ...SERVICES.map((s) => `pakalpojumi/${s.slug}/`), "objekti/", "sertifikati/", "par-mums/", "kontakti/", "privatuma-politika/", "juridiska-informacija/"];
+const lvUrls = ["", "pakalpojumi/", ...SERVICES.map((s) => `pakalpojumi/${s.slug}/`), "objekti/", "padomi/", "sertifikati/", "par-mums/", "kontakti/", "privatuma-politika/", "juridiska-informacija/"];
 const ruUrls = ["ru", "ru/uslugi", "ru/uslugi/obsledovanie-kryshi", "ru/uslugi/stroitelnyy-nadzor", "ru/uslugi/proverka-gidroizolyatsii", "ru/uslugi/analiz-proekta", "ru/uslugi/konsultatsii", "ru/obekty", "ru/sertifikaty", "ru/o-nas", "ru/kontakty", "ru/politika-konfidencialnosti", "ru/yuridicheskaya-informaciya"];
 write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${[...lvUrls, ...ruUrls].map((u) => `<url><loc>${SITE}/${u}</loc></url>`).join("")}</urlset>`);
 
