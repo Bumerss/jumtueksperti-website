@@ -32,3 +32,12 @@ The Latvian home, services, objects, about and certificates pages are generated 
 - `_astro/`: stylesheet and Open Sans font files
 - `assets/`: logos, photos, certificates (personal data redacted), map tiles
 - `sitemap.xml`, `robots.txt`, `llms.txt`: search engine and AI crawler files
+
+## Images
+
+Pages use WebP copies from `assets/img/` (originals stay in `assets/objects/`, `assets/certificates/`, `assets/brand/`). Photos have two widths so phones load the smaller one (`srcset`, set up in `WEBP` in `tools/build-lv.mjs`). To add a new photo, make both widths with ffmpeg (`-q:v` sets quality; `-quality` is ignored by this encoder), add it to `WEBP` and run `node tools/build-lv.mjs`:
+
+```
+ffmpeg -i photo.jpg -vf "scale='min(1400,iw)':-2:flags=lanczos" -c:v libwebp -q:v 82 -compression_level 6 -preset photo assets/img/photo-1400.webp
+ffmpeg -i photo.jpg -vf "scale='min(800,iw)':-2:flags=lanczos"  -c:v libwebp -q:v 82 -compression_level 6 -preset photo assets/img/photo-800.webp
+```
